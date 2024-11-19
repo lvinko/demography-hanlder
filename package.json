@@ -1,10 +1,14 @@
 {
-  "name": "vercel-express",
+  "name": "major-api",
   "version": "1.0.0",
-  "description": "Deploy express.js to Vercel",
+  "description": "Major API",
   "main": "src/index.js",
   "scripts": {
     "start": "node dist/index.js",
+    "pm2:start": "pm2 start src/index.ts --watch",
+    "pm2:kill": "pm2 delete ts-node",
+    "pm2:list": "pm2 list",
+    "pm2:restart": "pm2 restart ts-node",
     "dev": "tsx watch ./src/index.ts",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json"
@@ -14,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
+    "pm2": "^5.4.3",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"
